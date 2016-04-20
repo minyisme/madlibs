@@ -41,7 +41,7 @@ def greet_person():
 
 @app.route('/game')
 def show_game_form():
-    """Show the game form."""
+    """Redirects player based on play_response."""
 
     play_response = request.args.get("play_game")
 
@@ -79,6 +79,7 @@ def show_madlib():
             famous_people_str = famous_people_str + ", " + person
             famous_people_str = famous_people_str.lstrip(", ")
 
+#request.args.getlist() on a multidict
 
     return render_template("madlib.html",
                             person=player,
