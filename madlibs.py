@@ -55,39 +55,39 @@ def show_game_form():
 def show_madlib():
     """Show madlib.html."""
 
+    # binding variables to passed parameters from form input 
     player = request.args.get("firstname")
     color_word = request.args.get("color")
     noun_word = request.args.get("noun")
     adjective_word = request.args.get("adjective")
     place_word = request.args.get("place")
-    famous_people_str = ""
-    famous_people = []
-    if request.args.get("shakira"):
-        shakira = request.args.get("shakira")
-        famous_people.append(shakira)
-    if request.args.get("madonna"):
-        madonna = request.args.get("madonna")
-        famous_people.append(madonna)
-    if request.args.get("beyonce"):
-        beyonce = request.args.get("beyonce")
-        famous_people.append(beyonce)
-    else:
-        famous_people_str = "No one"
+    # request.args.getlist used to get lists from form input
+    famous_people = request.args.getlist("people")
 
-    if famous_people != "No one":
-        for person in famous_people:
-            famous_people_str = famous_people_str + ", " + person
-            famous_people_str = famous_people_str.lstrip(", ")
+    # below is an alternate solution that solves for extra comma but
+    # doesn't use jinja2
+    # # create an empty string to populate later
+    # famous_people_str = ""
 
-#request.args.getlist() on a multidict
+    # # run through list of famous people and add their names to string
+    # if famous_people:
+    #     for person in famous_people:
+    #         famous_people_str = famous_people_str + ", " + person
+    #         famous_people_str = famous_people_str.lstrip(", ")
+    # else: 
+    #     famous_people_str = "No one"
 
-    return render_template("madlib.html",
+    # a list to hold different madlibs
+    madlib_version = ["madlib.html", "madlib2.html", "madlib3.html"]
+    chosen_madlib = choice(madlib_version)
+
+    return render_template(chosen_madlib,
                             person=player,
                             color=color_word,
                             noun=noun_word,
                             adjective=adjective_word,
                             place=place_word,
-                            people=famous_people_str)
+                            people=famous_people)
 
 
 if __name__ == '__main__':

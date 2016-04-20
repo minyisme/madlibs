@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/madlibs.css"> 
+    <title>Generated Madlib - Random</title>
+</head>
+<body>
+    <h1>Once upon a time, in the far away land of {{ place }}, a {{ noun }} named {{ person }} sat around waiting for a cool story. All around {{ person }}, 
+
+    {% if people %}
+        {% for person in people %}
+            {{ person }},
+        {% endfor %} 
+    {% else %}
+        No one
+    {% endif %}
+
+    danced menacingly in a {{ color }} colored hurricane. Please be {{ adjective }} and save {{ person }}. The end.</h1>
+</body>
+</html>
+
+

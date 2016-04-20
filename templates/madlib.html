@@ -1,9 +1,20 @@
 <!doctype html>
 <html>
 <head>
+    <link rel="stylesheet" href="../static/madlibs.css"> 
     <title>Generated Madlib</title>
 </head>
 <body>
-    <h1>There once was a {{ color }} {{ noun }} from {{ place }} sitting in the Hackbright Lab. When {{ person }} went to pick it up, it burst into flames in a totally {{ adjective }} way. {{people}} put it out.</h1>
+    <h1>There once was a {{ color }} {{ noun }} from {{ place }} sitting in the Hackbright Lab. When {{ person }} went to pick it up, it burst into flames in a totally {{ adjective }} way. 
+
+    {% if people %}
+        {% for person in people %}
+            {{ person }},
+        {% endfor %} 
+    {% else %}
+        No one
+    {% endif %}
+
+    put it out.</h1>
 </body>
 </html>

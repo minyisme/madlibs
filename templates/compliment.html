@@ -1,10 +1,11 @@
 <!doctype html>
 <html>
 <head>
+  <link rel="stylesheet" href="../static/madlibs.css"> 
   <title>A Compliment</title>
 </head>
 <body>
-    Hi {{ person }}! I think you're {{ compliment }}!
+    <h1>Hi {{ person }}! I think you're {{ compliment }}!</h1>
     <form action="/game">
         Do you want to play a game?
         <input type="radio" name="play_game" value="yes">Yes

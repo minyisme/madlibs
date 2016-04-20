@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="../static/madlibs.css"> 
+    <title>Generated Madlib - Alternate Universe (how exciting!)</title>
+</head>
+<body>
+    <h1>In the year 3000, 
+
+    {% if people %}
+        {% for person in people %}
+            {{ person }},
+        {% endfor %} 
+    {% else %}
+        No one
+    {% endif %}
+
+    remade the world into a version of their own liking. Earth became a {{ color }} {{ adjective }} world. In this world, {{ person }} ruled supreme. In {{ place }}, a resistance group formed called the {{ noun }} Underground.</h1>
+</body>
+</html>
